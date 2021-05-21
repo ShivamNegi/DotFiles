@@ -13,14 +13,18 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'morhetz/gruvbox'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 colorscheme gruvbox
 set background=dark
+
+" Remappings
+noremap <C-n> :NERDTree<CR>
+noremap <silent> <C-f> :Files .<CR>
 
