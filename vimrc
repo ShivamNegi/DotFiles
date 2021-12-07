@@ -3,6 +3,7 @@ filetype off                  " required
 
 set nu
 syntax on
+set cursorline
 set tabstop=4
 set shiftwidth=4
 set expandtab
