@@ -8,6 +8,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set belloff=all
+set encoding=utf-8
 " need to install vim-gtk3
 set clipboard=unnamedplus
 set ignorecase
@@ -18,7 +19,19 @@ set hlsearch
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" For syntax checking inside vim
+Plugin 'scrooloose/syntastic'
+" Comment functionality
+Plugin 'scrooloose/nerdcommenter'
+" Indent Line
+Plugin 'yggdroot/indentline'
+Plugin 'tpope/vim-surround'
+Plugin 'prettier/vim-prettier'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'valloric/youcompleteme'
 Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
@@ -29,13 +42,17 @@ Plugin 'majutsushi/tagbar'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" colorscheme molokai
+
 colorscheme gruvbox
 set background=dark
 
 " Remappings
 noremap <C-n> :NERDTree<CR>
-noremap <silent> <C-f> :Files .<CR>
-noremap <silent> <Leader>f :Rg<CR>
+" Open files in project
+noremap <silent> <C-p> :Files .<CR>
+" Fuzzy search string in project
+noremap <silent> <C-f> :Rg .<CR>
 
 " Ctags - apt-get install universal-ctags
 nnoremap <silent> <C-b> :TagbarToggle<CR>
@@ -47,8 +64,11 @@ nnoremap J mzJ`z
 
 " Mapping Save and exit commands
 nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>a
+imap <c-s> <Esc>:w<CR>
 
 nmap <c-c> :q<CR>
-imap <c-c> <Esc>:q<CR>a
+imap <c-c> <Esc>:q<CR>
+
+" Setting conceal level due to indentline plugin
+let g:indentLine_setConceal = 0
 
